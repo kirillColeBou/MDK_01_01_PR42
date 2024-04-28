@@ -22,6 +22,7 @@ namespace ShopContent_Тепляков
     {
         public static MainWindow init;
         public View.Main Main = new View.Main();
+        public View.Category.Main MainCategorys = new View.Category.Main();
 
         public MainWindow()
         {
@@ -31,5 +32,7 @@ namespace ShopContent_Тепляков
         }
 
         private void OpenIndex(object sender, MouseButtonEventArgs e) => frame.Navigate(Main);
+
+        private void OpenIndex2(object sender, MouseButtonEventArgs e) => frame.Navigate(MainCategorys);
     }
 }

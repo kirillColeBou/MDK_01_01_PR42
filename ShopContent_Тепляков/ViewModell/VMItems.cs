@@ -16,7 +16,7 @@ namespace ShopContent_Тепляков.ViewModell
             get
             {
                 return new Classes.RelayCommand(obj =>
-                {
+                { 
                     Context.ItemsContext newModell = new Context.ItemsContext(true);
                     Items.Add(newModell);
                     MainWindow.init.frame.Navigate(new View.Add(newModell));
