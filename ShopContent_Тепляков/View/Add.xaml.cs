@@ -1,5 +1,4 @@
-﻿using ShopContent_Тепляков.ViewModell;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -15,14 +14,18 @@ using System.Windows.Shapes;
 namespace ShopContent_Тепляков.View
 {
     /// <summary>
-    /// Логика взаимодействия для Main.xaml
+    /// Логика взаимодействия для Add.xaml
     /// </summary>
-    public partial class Main : Page
+    public partial class Add : Page
     {
-        public Main()
+        public Add(object Context)
         {
             InitializeComponent();
-            this.DataContext = new VMItems();
+            DataContext = new
+            {
+                item = Context,
+                categorys = new ViewModell.VMCategorys()
+            };
         }
     }
 }

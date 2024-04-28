@@ -7,7 +7,7 @@ namespace ShopContent_Тепляков.Classes
 {
     public class Connection
     {
-        private static readonly string config = "server=USER\\SQLEXPRESS;Trusted_Connection=No;DataBase=ShopContent;User=sa;pwd=sa";
+        private static readonly string config = "server=DESKTOP-UIE24UG\\SQLEXPRESS;Trusted_Connection=No;DataBase=ShopContent;User=sa;pwd=Asdfg123";
 
         public static SqlConnection OpenConnection()
         {

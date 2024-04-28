@@ -1,11 +1,11 @@
-﻿using ShopContent_Тепляков.Classes;
+﻿using ShopContent_Тепляков;
+using ShopContent_Тепляков.Classes;
+using ShopContent_Тепляков.Context;
 using ShopContent_Тепляков.Modell;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 
 namespace ShopContent_Тепляков.Context
 {
@@ -30,7 +30,7 @@ namespace ShopContent_Тепляков.Context
                     Name = dataItems.GetString(1),
                     Price = dataItems.GetDouble(2),
                     Description = dataItems.GetString(3),
-                    Category = dataItems.IsDBNull(4) ? null : allCategorys.First(x => x.Id == dataItems.GetInt32(4))
+                    Category = dataItems.IsDBNull(4) ? null : allCategorys.Where(x => x.Id == dataItems.GetInt32(4)).First()
                 });
             }
             Connection.CloseConnection(connection);
@@ -82,7 +82,7 @@ namespace ShopContent_Тепляков.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    MainWindow.init.frame.Navigate(new View.Items.Add(this));
+                    MainWindow.init.frame.Navigate(new View.Add(this));
                 });
             }
         }
@@ -92,7 +92,7 @@ namespace ShopContent_Тепляков.Context
             {
                 return new RelayCommand(obj =>
                 {
-                    Category = CategorysContext.AllCategorys().First(x => x.Id == this.Category.Id);
+                    Category = CategorysContext.AllCategorys().Where(x => x.Id == this.Category.Id).First();
                     Save();
                 });
             }
